@@ -1,4 +1,4 @@
 import random
 
-# A
+# AB
 open("docs/zarg.html", "w").write(f"{random.random()}")
