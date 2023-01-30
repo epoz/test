@@ -1,0 +1,37 @@
+name: Update the /docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - documentation
+    paths:
+      - nfdicore.ttl
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - uses: actions/cache@v2
+        name: Configure pip caching
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-publish-pip-${{ hashFiles('**/setup.py') }}
+          restore-keys: |
+            ${{ runner.os }}-publish-pip-
+      - name: GenerateSome Stuff
+        run: |-
+          mkdir docs
+          python test.py
+      - name: Commit and push if anything changed
+        run: |-
+          git diff
+          git config --global user.email "eposthumus@gmail.com"
+          git config --global user.name "Etienne Posthumus"
+          git diff --quiet || (git add docs/zarg.html && git commit -m "Updated Zarg")
+          git push
