@@ -1,6 +1,6 @@
 import random, time, os
 
-# AB
+# ABC
 print(time.ctime(), "woot")
 open("docs/zarg.html", "w").write(f"{random.random()}")
 
