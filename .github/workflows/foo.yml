@@ -1,6 +1,10 @@
 name: Update the /docs
 
-on: push
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - test.py
 
 jobs:
   build:
