@@ -24,7 +24,6 @@ jobs:
             ${{ runner.os }}-publish-pip-
       - name: GenerateSome Stuff
         run: |-
-          mkdir docs
           python test.py
       - name: Commit and push if anything changed
         run: |-
