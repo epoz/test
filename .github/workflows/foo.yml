@@ -1,12 +1,6 @@
 name: Update the /docs
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - documentation
-    paths:
-      - nfdicore.ttl
+on: push
 
 jobs:
   build:
