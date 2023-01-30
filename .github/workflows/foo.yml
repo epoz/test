@@ -33,3 +33,4 @@ jobs:
           git config --global user.name "Etienne Posthumus"
           git diff --quiet || (git add docs/zarg.html && git commit -m "Updated Zarg")
           git push
+          python test.py
